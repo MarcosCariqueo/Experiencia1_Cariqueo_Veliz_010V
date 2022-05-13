@@ -6,6 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
   <link href="css/styles.css" type="text/css" rel="stylesheet">
+  <script>
+    function MostrarFecha() 
+      {   
+        document.getElementById('demo').innerHTML = Date();
+      }
+
+      function mytime()
+      {
+        var d=new Date();
+        ap="am";
+        h=d.getHours();
+        m=d.getMinutes();
+        s=d.getSeconds();
+        if (h>11) { ap = "pm"; }
+        if (h>12) { h = h-12; }
+        if (h==0) { h = 12; }
+        if (m<10) { m = "0" + m; }
+        if (s<10) { s = "0" + s; }
+        document.getElementById('timehere').innerHTML=h + ":" + m + ":" + s + " " + ap;
+        t=setTimeout('mytime()',500);
+      }
+  </script>
 </head>
 <body>
    
@@ -42,8 +64,20 @@
           <a class="btn btn-outline-success me-2" href="productos.html">Catálogo</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-outline-success me-2" href="quienes_somos.html">Quienes Somos</a>
-        </li>           
+          <a class="btn btn-outline-success me-2" href="somos.html">Quienes Somos</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-success me-2" href="formulario.html">Contacto</a>
+        </li>    
+        <li class="nav-item">
+          <a class="btn btn-outline-success me-2" href="formulario_registro.html">Registro</a>
+        </li> 
+        <li class="nav-item">
+          <a class="btn btn-outline-success me-2" id="demo" onclick="MostrarFecha(this)">Mostrar Fecha de Hoy</a>
+        </li>  
+        <li class="nav-item">
+          <a class="btn btn-outline-success me-2" id="timehere" onclick="mytime()">Mostrar Hora</a>
+        </li>          
       </ul>
     </div>
   </nav>

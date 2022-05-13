@@ -4,8 +4,64 @@
   <title>Vivero Maqueta v1</title> 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <link href="css/styles.css" type="text/css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+
+        $("#enviar").click(function(){
+
+            $.get("https://apis.digital.gob.cl/fl/feriados/2022",function(data)
+            {
+                $.each(data,function(i,item)
+                {
+                    $("#feriados").append("<tr><td>"+ item.nombre +
+                        "</td><td>"+item.fecha +
+                        "</td><td>"+item.irrenunciable+
+                        "</td><td>"+item.tipo+"</td></tr>");
+                });
+            });
+        });
+    });
+
+  </script>
+
+  <script> 
+        function Mover(obj)
+          {
+              obj.style.background="lightgreen";
+          }
+
+          function MoverFuera(obj)
+          {
+              obj.style.background= "white";  
+          }
+
+          function MostrarFecha() 
+          {   
+            document.getElementById('demo').innerHTML = Date();
+          }
+
+          function mytime()
+          {
+            var d=new Date();
+            ap="am";
+            h=d.getHours();
+            m=d.getMinutes();
+            s=d.getSeconds();
+            if (h>11) { ap = "pm"; }
+            if (h>12) { h = h-12; }
+            if (h==0) { h = 12; }
+            if (m<10) { m = "0" + m; }
+            if (s<10) { s = "0" + s; }
+            document.getElementById('timehere').innerHTML=h + ":" + m + ":" + s + " " + ap;
+            t=setTimeout('mytime()',500);
+          }
+  </script>
 </head>
 <body>
    
@@ -43,11 +99,23 @@
         </li>
         <li class="nav-item">
           <a class="btn btn-outline-success me-2" href="somos.html">Quienes Somos</a>
-        </li>           
+        </li> 
+        <li class="nav-item">
+          <a class="btn btn-outline-success me-2" href="formulario.html">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-success me-2" href="formulario_registro.html">Registro</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-success me-2" id="demo" onclick="MostrarFecha(this)">Mostrar Fecha de Hoy</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-success me-2" id="timehere" onclick="mytime()">Mostrar Hora</a>
+        </li>             
       </ul>
     </div>
   </nav>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https ://code.jquery.com/jquery-3.4.1.min.js" integrity= "sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSF1Bw8HfCJo=" crossorigin=" anonymous" ></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   
@@ -89,7 +157,7 @@
         </a>
       </div>
       
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https ://code.jquery.com/jquery-3.4.1.min.js" integrity= "sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSF1Bw8HfCJo=" crossorigin=" anonymous" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
@@ -100,7 +168,7 @@
     <div class="row">       
       <div class="col-md">        
           <div class="card text-center">
-            <div class="card-body">
+            <div onmouseover="Mover(this)" onmouseout="MoverFuera(this)" class="card-body">
               <h4 class="card-title">Árboles Frutales Cítricos</h4>
               <img src="img/naranjobanner.jpg" class="img-fluid" style="padding-bottom: 15px;">
               <p class="card-text">Nuestra gama de árboles frutales cítricos están cuidados con los mejores estándares
@@ -113,7 +181,7 @@
 
       <div class="col-md">        
           <div class="card text-center">
-            <div class="card-body">
+            <div onmouseover="Mover(this)" onmouseout="MoverFuera(this)" class="card-body">
               <h4 class="card-title">Un Negocio Familiar de Generaciones</h4>
               <p class="card-text">Desde hace más de 6 décadas, viver Santa Hilda ha entregado calidad en sus árboles y otros productos
                 para cubrir las necesidades e ideas de emprendimiento de nuestros clientes. Todo esto bajo el cuidado y calor de cada miembro
@@ -127,7 +195,7 @@
       
       <div class="col-md">        
           <div class="card text-center">
-            <div class="card-body">
+            <div onmouseover="Mover(this)" onmouseout="MoverFuera(this)" class="card-body">
               <h4 class="card-title">Ofertas Imperdibles de Temporada</h4>
               <img src="img/bannerfoto1.jpg" class="img-fluid" style="padding-bottom: 15px;">
               <p class="card-text">¿Quieres preparar tu negocio o sueño? Nuestras ofertas te ayudaran a cubrir todo lo que deseas.
@@ -142,6 +210,32 @@
 
   <br>
   <br>
+
+<!--API -->
+
+<div class="container">
+  <h1>Feriados de Chile </h1> <br>
+  <button id="enviar">Consultar</button>
+  <br>
+  <table class="table" id="feriados">
+          <thead>
+              <tr>
+              <th>Nombre</th>
+              <th>Fecha</th>
+              <th>Irrenunciable "0" NO, "1" SI</th>
+              <th>Tipo</th>
+              </tr>
+          </thead>
+      <tbody>
+
+
+
+
+      </tbody>
+  </table>
+
+
+</div>  
 
 <!--Footer-->
   <br>
