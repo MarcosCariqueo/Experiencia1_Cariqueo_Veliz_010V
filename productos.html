@@ -6,6 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
   <link href="css/styles.css" type="text/css" rel="stylesheet">
+
+  <script>
+  function MostrarFecha() 
+    {   
+      document.getElementById('demo').innerHTML = Date();
+    }
+
+    function mytime()
+    {
+      var d=new Date();
+      ap="am";
+      h=d.getHours();
+      m=d.getMinutes();
+      s=d.getSeconds();
+      if (h>11) { ap = "pm"; }
+      if (h>12) { h = h-12; }
+      if (h==0) { h = 12; }
+      if (m<10) { m = "0" + m; }
+      if (s<10) { s = "0" + s; }
+      document.getElementById('timehere').innerHTML=h + ":" + m + ":" + s + " " + ap;
+      t=setTimeout('mytime()',500);
+    }
+</script>
 </head>
 <body>
    
@@ -43,7 +66,19 @@
         </li>
         <li class="nav-item">
           <a class="btn btn-outline-success me-2" href="somos.html">Quienes Somos</a>
-        </li>           
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-success me-2" href="formulario.html">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-success me-2" href="formulario_registro.html">Registro</a>
+        </li>  
+        <li class="nav-item">
+          <a class="btn btn-outline-success me-2" id="demo" onclick="MostrarFecha(this)">Mostrar Fecha de Hoy</a>
+        </li>  
+        <li class="nav-item">
+          <a class="btn btn-outline-success me-2" id="timehere" onclick="mytime()">Mostrar Hora</a>
+        </li>             
       </ul>
     </div>
   </nav>
@@ -78,8 +113,8 @@
           <img class="card-img-top" src="img/productos 5.jpeg">            
           <div class="card-body">
             <h4 class="card-title">Arboles Frutales</h4>
-            <p class="card-text">Desde la semilla 100% organica, nuestro arboles frutales son regados 
-              y cuidados sin usar medios quimicos para su crecimiento.
+            <p class="card-text">Desde la semilla 100% orgánica, nuestros árboles frutales son regados 
+              y cuidados sin usar medios químicos para su crecimiento.
             </p>
           </div>
         </div>          
@@ -107,8 +142,8 @@
               <img class="card-img-top" src="img/productos3.jpeg">            
               <div class="card-body">
                 <h4 class="card-title">Maceteros de Greda</h4>
-                <p class="card-text">fabricados y cocidos de manera artesanal asegumos la calidad y 
-                  durabilidad de nuestros mazeteros echos con materiales de la zona y con muchos años de 
+                <p class="card-text">Fabricados y cocidos de manera artesanal aseguramos la calidad y 
+                  durabilidad de nuestros maceteros hechos con materiales de la zona y con muchos años de 
                   experiencia.
                 </p>
               </div>
@@ -131,7 +166,7 @@
               <img class="card-img-top" src="img/productos1.jpeg">            
               <div class="card-body">
                 <h4 class="card-title">Herramientas</h4>
-                <p class="card-text">Herraminetas fabricadas para durar. Nuestros herreros fabrican con acero 
+                <p class="card-text">Herramientas fabricadas para durar. Nuestros herreros fabrican con acero 
                   de alto carbono para que resistan los golpes y las inclemencias del clima. </p>
               </div>
             </div>          

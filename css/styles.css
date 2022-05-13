@@ -41,3 +41,17 @@ nav.navbar {
 strong {
     color: black;
 }
+
+.textlabel {
+    color:white;
+    font-weight:bolder;
+}
+
+.error {
+    color:white;
+    font-weight: bolder;
+}
+
+table {
+    background-color: rgb(77, 184, 77);
+}
